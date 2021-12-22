@@ -6,9 +6,12 @@
 
 ## I'm going to try and create a program to compare files in two directories
 
+import hashlib
 import sys
 import os
+from pathlib import Path
 
+buffer_size = 65536 # 64kb
 
 def main():
 
@@ -57,14 +60,41 @@ def main():
     ## Just comparing names
     ## Not efficient...look into other methods
 
-    same_items = []
+    same_name_items = []
 
     for i in path_1_contents:
         for j in path_2_contents:
 
             if i == j:
-                same_items.append(i)
+                same_name_items.append(i)
                 
+
+    ## Check hashes for files with same names
+
+    same_items = []
+
+    for i in same_name_items:
+
+        file_1_hash = hashlib.sha256()
+        file_2_hash = hashlib.sha256()
+
+        with open(Path(path_1, i), 'rb') as file_1, open(Path(path_2, i), 'rb') as file_2:
+            while True:
+                
+                data_1 = file_1.read(buffer_size)
+                data_2 = file_2.read(buffer_size)
+
+                if not data_1 or not data_2:
+                    # If reaches end of file
+                    same_items.append(i)
+                    break
+                
+                file_1_hash.update(data_1)
+                file_2_hash.update(data_2)
+
+                if file_1_hash.hexdigest() != file_2_hash.hexdigest():
+                    break
+
 
     ## Give report on each path
     print('')
