@@ -25,9 +25,17 @@ def main():
 
     ## get list of files in each path
 
-    path_1_contents = os.listdir(path_1)
+    try:
+        path_1_contents = os.listdir(path_1)
+    except:
+        print('Path not found')
+        sys.exit()
 
-    path_2_contents = os.listdir(path_2)
+    try:
+        path_2_contents = os.listdir(path_2)
+    except:
+        print('Path not found')
+        sys.exit()
 
     print('')
     print(f'Contents of path 1:')
