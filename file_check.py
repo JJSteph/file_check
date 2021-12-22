@@ -37,6 +37,13 @@ def main():
         print('Path not found')
         sys.exit()
 
+
+    # If both paths are the same
+
+    if path_1 == path_2:
+        print('Please provide two different paths')
+        sys.exit()
+
     print('')
     print(f'Contents of path 1:')
     print(path_1_contents)
