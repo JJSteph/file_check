@@ -37,21 +37,21 @@ def main():
         print('Path not found')
         sys.exit()
 
-
     # If both paths are the same
 
     if path_1 == path_2:
         print('Please provide two different paths')
         sys.exit()
 
-    print('')
-    print(f'Contents of path 1:')
-    print(path_1_contents)
-    print('')
+    # print('')
+    # print(f'Contents of path 1:')
+    # print(path_1_contents)
+    # print('')
 
-    print(f'Contents of path 2:')
-    print(path_2_contents)
-    print('')
+    # print(f'Contents of path 2:')
+    # print(path_2_contents)
+    # print('')
+
 
     ## compare the two
     ## Just comparing names
@@ -65,6 +65,13 @@ def main():
             if i == j:
                 same_items.append(i)
                 
+
+    ## Give report on each path
+    print('')
+    print(f'Path 1: {len(same_items)} / {len(path_1_contents)} files were found in path 2.')
+    print('')
+    print(f'Path 2: {len(same_items)} / {len(path_2_contents)} files were found in path 1.')
+    print('')
 
     ## return list of files in both
 
