@@ -46,19 +46,7 @@ def main():
         print('Please provide two different paths')
         sys.exit()
 
-    # print('')
-    # print(f'Contents of path 1:')
-    # print(path_1_contents)
-    # print('')
-
-    # print(f'Contents of path 2:')
-    # print(path_2_contents)
-    # print('')
-
-
-    ## compare the two
-    ## Just comparing names
-    ## Not efficient...look into other methods
+    ## First I'm comparing names
 
     same_name_items = []
 
@@ -106,10 +94,10 @@ def main():
     ## return list of files in both
 
     if len(same_items) == 0:
-        print('No similar items found.')
+        print('No shared files exist between the two paths.')
 
     else:
-        print(f'There were {len(same_items)} similar items found.')
+        print(f'There were {len(same_items)} shared items found:')
         print('')
 
         for i in range(len(same_items)):
