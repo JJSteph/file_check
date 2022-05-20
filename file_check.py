@@ -47,13 +47,20 @@ def main():
         sys.exit()
 
     ## First I'm comparing names
+    ## Don't include folders for now
 
     same_name_items = []
 
     for i in path_1_contents:
         for j in path_2_contents:
 
-            if i == j:
+            path_1_check = Path(path_1 + '/' + i)
+            path_2_check = Path(path_2 + '/' + j)
+
+            if path_1_check.is_dir() or path_2_check.is_dir():
+                continue
+
+            elif i == j:
                 same_name_items.append(i)
                 
 
@@ -86,9 +93,14 @@ def main():
 
     ## Give report on each path
     print('')
-    print(f'Path 1: {len(same_items)} / {len(path_1_contents)} files were found in path 2.')
+    print(f'Path 1:')
+    print(path_1)
+    print(f'{len(same_items)} / {len(path_1_contents)} files in path 1 were found in path 2.')
     print('')
-    print(f'Path 2: {len(same_items)} / {len(path_2_contents)} files were found in path 1.')
+
+    print(f'Path 2:')
+    print(path_2)
+    print(f'{len(same_items)} / {len(path_2_contents)} files in path 2 were found in path 1.')
     print('')
 
     ## return list of files in both
@@ -97,11 +109,18 @@ def main():
         print('No shared files exist between the two paths.')
 
     else:
-        print(f'There were {len(same_items)} shared items found:')
-        print('')
+        print(f'Shared files (files in both paths):')
+        print(f'There were {len(same_items)} shared items found')
+        # print('')
+        # print('{:<20} {:<20} {:<30} {:<30}'.format(' ','File:', 'Path 1:', 'Path 2:'))
 
         for i in range(len(same_items)):
-            print(f'File {i + 1} / {len(same_items)}: {same_items[i]}')
+            file_num = "File " + str(i + 1) + " / " + str(len(same_items)) + ":"
+            print('')
+            print(f'{file_num} {same_items[i]}')
+            # path_1_file = '/' + path_1 + '/' + same_items[i]
+            # path_2_file = '/' + path_2 + '/' + same_items[i]
+            # print(f'{file_num:<20} {same_items[i]:<20} {path_1_file:<30} {path_2_file:<30}')
 
     print('')
 
