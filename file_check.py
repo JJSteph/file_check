@@ -47,7 +47,6 @@ def main():
         sys.exit()
 
     ## First I'm comparing names
-    ## Don't include folders for now
 
     same_name_items = []
 
@@ -57,6 +56,7 @@ def main():
             path_1_check = Path(path_1 + '/' + i)
             path_2_check = Path(path_2 + '/' + j)
 
+            # Don't compare folders
             if path_1_check.is_dir() or path_2_check.is_dir():
                 continue
 
