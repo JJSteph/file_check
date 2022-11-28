@@ -1,4 +1,5 @@
 *.txt
 /path_1/
 /path_2/
+.gitignore
 test_recursive.py
