@@ -94,14 +94,16 @@ def main():
     ## Give report on each path
     print('')
     print('Path 1:')
+    print('#' * 50)
     print(path_1)
     print(f'{len(same_items)} / {len(path_1_contents)} files in path 1 were found in path 2.')
-    print('')
+    print('\n')
 
     print('Path 2:')
+    print('#' * 50)
     print(path_2)
     print(f'{len(same_items)} / {len(path_2_contents)} files in path 2 were found in path 1.')
-    print('')
+    print('\n')
 
     ## return list of files in both
 
@@ -110,12 +112,13 @@ def main():
 
     else:
         print('Shared files (files in both paths):')
+        print('#' * 50)
         print(f'There were {len(same_items)} shared items found')
-        
-        for i in range(len(same_items)):
-            file_num = "File " + str(i + 1) + " / " + str(len(same_items)) + ":"
-            print('')
-            print(f'{file_num} {same_items[i]}')
+        print('')
+
+        for i, filename in enumerate(same_items, 1):
+            file_num = "File " + str(i) + " / " + str(len(same_items)) + ":"
+            print(f'{file_num} {filename}')
 
     print('')
 
