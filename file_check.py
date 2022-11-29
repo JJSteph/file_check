@@ -14,6 +14,7 @@ from pathlib import Path
 buffer_size = 65536 # 64kb
 
 def main():
+    """Compares the content of two folders and reports which files are the same"""
 
     ## check arguments exist
 
