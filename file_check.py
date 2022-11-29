@@ -96,13 +96,13 @@ def main():
     print('Path 1:')
     print('#' * 50)
     print(path_1)
-    print(f'{len(same_items)} / {len(path_1_contents)} files in path 1 were found in path 2.')
+    print(f'{len(same_items)} / {len(path_1_contents)} files in common.')
     print('\n')
 
     print('Path 2:')
     print('#' * 50)
     print(path_2)
-    print(f'{len(same_items)} / {len(path_2_contents)} files in path 2 were found in path 1.')
+    print(f'{len(same_items)} / {len(path_2_contents)} files in common.')
     print('\n')
 
     ## return list of files in both
