@@ -108,12 +108,12 @@ def main():
     ## return list of files in both
 
     if len(same_items) == 0:
-        print('No shared files exist between the two paths.')
+        print('No common files exist between the two paths.')
 
     else:
-        print('Shared files (files in both paths):')
+        print('Common files (files in both paths):')
         print('#' * 50)
-        print(f'There were {len(same_items)} shared items found')
+        print(f'There were {len(same_items)} common items found')
         print('')
 
         for i, filename in enumerate(same_items, 1):
